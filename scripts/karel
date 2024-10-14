@@ -2,6 +2,6 @@
 
 # build & run karel program
 
-/usr/bin/javac -cp karel.jar $1 && 
-(/usr/bin/java -cp .:./karel.jar "${1%.*}" || echo "Error during execution") || 
+/usr/bin/javac -cp /workspaces/CS106A-codespace/assignment1/karel.jar $1 && 
+(/usr/bin/java -cp .:/workspaces/CS106A-codespace/assignment1/karel.jar "${1%.*}" || echo "Error during execution") || 
 echo "Error during compilation"
