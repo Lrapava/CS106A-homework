@@ -1,10 +1,6 @@
 {
 	"features": {
-		"ghcr.io/devcontainers/features/java:17": {
-			"version": "none",
-			"installMaven": "true",
-			"installGradle": "false"
-		},
+		"ghcr.io/devcontainers/features/java:17.0.12": {},
 		"ghcr.io/devcontainers/features/desktop-lite:1": {}
   },
 	
