@@ -1,5 +1,5 @@
 {
-	"image": "mcr.microsoft.com/devcontainers/ubuntu",
+	"image": "mcr.microsoft.com/devcontainers/java",
 	"features": {
 		"ghcr.io/devcontainers/features/java:17.0.12": {},
 		"ghcr.io/devcontainers/features/desktop-lite:1": {}
