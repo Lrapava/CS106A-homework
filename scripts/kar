@@ -1,7 +1,0 @@
-#!/bin/sh
-
-# karel auto run
-# tires to build & run a karel program every time the file is changed,
-# unless it's already running
-
-echo $1 | entr ~/.local/bin/karel $1
