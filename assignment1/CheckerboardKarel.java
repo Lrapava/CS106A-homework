@@ -1,5 +1,5 @@
 /*
- // * File: CheckerboardKarel.java
+ * File: CheckerboardKarel.java
  * ----------------------------
  * When you finish writing it, the CheckerboardKarel class should draw
  * a checkerboard using beepers, as described in Assignment 1.  You
