@@ -14,7 +14,9 @@ After updating your system, run:
 
 $ git clone https://github.com/Lrapava/CS106A-codespace
 
-# ./install_deps.sh
+$ cd CS106A-codespace
+
+$ ./install_deps.sh
 
 $ ./config.sh
 
@@ -63,7 +65,7 @@ If you are using GitHub Codespaces, switch to VNC Client window to see your prog
 
 ## Contributing & Known issues
 
-Buttons are clickable but not rendered properly for assignment one. Not sure how to fix that.
+Buttons are clickable but not rendered properly for assignment one when running using GitHub Codespaces. Not sure how to fix that.
 
 Feel free to contribute to this project on GitHub if you feel like it.
 
