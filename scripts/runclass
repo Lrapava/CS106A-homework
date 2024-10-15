@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# build & run acm program
+# build & run your java program
 
 ACMPATH="/home/$(whoami)/.local/lib/cs106a/acm.jar"
 KARELPATH="/home/$(whoami)/.local/lib/cs106a/karel.jar"
