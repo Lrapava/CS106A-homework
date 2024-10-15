@@ -61,6 +61,8 @@ $ watchclass assignmentFolder/fileName.java
 
 This command will run your program automatically every time you save the corresponding file, assuming it's not already running.
 
+To exit this mode, switch to your terminal window and hit Ctrl+C keys.
+
 If you are using GitHub Codespaces, switch to VNC Client window to see your program running.
 
 ## Contributing & Known issues
