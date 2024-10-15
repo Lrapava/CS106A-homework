@@ -2,7 +2,7 @@
 
 # build & run karel program
 
-KARELPATH="~/.local/lib/cs106a/karel.jar"
+KARELPATH="/home/$(whoami)/.local/lib/cs106a/karel.jar"
 
 /usr/bin/javac -cp $KARELPATH $1 && 
 (/usr/bin/java -cp $(dirname $1):$KARELPATH "$(basename ${1%.*})" || echo "Error during execution") || 

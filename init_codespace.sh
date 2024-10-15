@@ -2,7 +2,7 @@
 
 # installing dependencies
 sudo apt update && sudo apt upgrade
-sudo apt install openjdk-17-jdk micro -y
+sudo apt -y install openjdk-17-jdk entr micro
 
 # installing local stuff
 ./config.sh

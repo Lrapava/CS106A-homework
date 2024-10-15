@@ -6,9 +6,9 @@ unsupportedPlatform() {
 }
 
 # debian-based
-sudo apt install -y openjdk-17-jdk entr  ||
+sudo apt -y install openjdk-17-jdk entr  ||
 # rhel-based
-sudo dnf install -y java-17-openjdk entr || 
+sudo dnf -y install java-17-openjdk entr || 
 # arch-based
 pacman -S jdk17-openjdk entr ||
 # unknown
