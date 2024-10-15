@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# acm auto run
+# tires to build & run an acm program every time the file is changed,
+# unless it's already running
+
+echo $1 | entr ~/.local/bin/acm $1

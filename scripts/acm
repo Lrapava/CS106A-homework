@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# build & run acm program
+
+ACMPATH="~/.local/lib/cs106a/acm.jar"
+
+/usr/bin/javac -cp $ACMPATH $1 && 
+(/usr/bin/java -cp $(dirname $1):$ACMPATH "$(basename ${1%.*})" || echo "Error during execution") || 
+echo "Error during compilation"
