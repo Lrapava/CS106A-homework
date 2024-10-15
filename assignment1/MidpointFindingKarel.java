@@ -14,6 +14,59 @@ import stanford.karel.*;
 
 public class MidpointFindingKarel extends SuperKarel {
 
-	// You fill in this part
+	public void run() {
+		
+		// preparation
+		fillLineBesidesEnds();
+		
+		// locate center & move there
+		while (beepersPresent()) {
+			pickBeeperInTheEnd();
+		}
+		
+		turnAround();
+		move();
+		
+		// fix orientation & put a beeper
+		if (facingWest()) {
+			turnAround();
+		}
+		
+		putBeeper();
+	
+	}
 
+	// expected start state: KAREL is locate on the leftmost corner
+	// of the first line facing east.
+	// end state: there's a beeper on every square of the first line
+	// besides rightmost & leftmost. KAREL is located on the leftmost
+	// square containing a beeper.
+	
+	private void fillLineBesidesEnds() {
+		while (frontIsClear()) {
+			move();
+			putBeeper();
+		}
+		pickBeeper();
+		turnAround();
+		move();
+	}
+	
+	// expected start state: KAREL is located on one of the ends of
+	// the line of consecutive beepers, facing the other end.
+	// end state: KAREL removes a beeper from the opposite end of the
+	// line and moves to the furthest square from the initial position
+	// containing a beeper, facing the opposite of initial direction.
+
+	private void pickBeeperInTheEnd() {
+		while (beepersPresent()) {
+			move();
+		}
+		turnAround();
+		move();
+		pickBeeper();
+		move();
+	}
+	
 }
+
