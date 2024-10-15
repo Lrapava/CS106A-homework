@@ -6,6 +6,6 @@ ACMPATH="/home/$(whoami)/.local/lib/cs106a/acm.jar"
 KARELPATH="/home/$(whoami)/.local/lib/cs106a/karel.jar"
 YAHTZEEPATH="/home/$(whoami)/.local/lib/cs106a/yahtzeelib.jar"
 
-/usr/bin/javac -cp $ACMPATH $1 && 
+/usr/bin/javac -cp $ACMPATH:$KARELPATH:$YAHTZEEPATH $1 && 
 (/usr/bin/java -cp $(dirname $1):$ACMPATH:$KARELPATH:$YAHTZEEPATH "$(basename ${1%.*})" || echo "Error during execution") || 
 echo "Error during compilation"
