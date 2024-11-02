@@ -25,8 +25,26 @@ public class Pyramid extends GraphicsProgram {
 /** Number of bricks in the base of the pyramid */
 	private static final int BRICKS_IN_BASE = 14;
 	
+	// Invokes drawLayer() for every layer that needs to be drawn
 	public void run() {
-		/* You fill this in. */
+		for (int i = 0; i < BRICKS_IN_BASE; i++) {
+			drawLayer(i);
+		}
+	}
+	
+	// Draws n-th layer of the pyramid
+	private void drawLayer(int n) {
+		
+		final int bricksInLayer = BRICKS_IN_BASE - n;
+		final int y = getHeight() - n * BRICK_HEIGHT;
+		final int brickOffset = (getWidth() - bricksInLayer * BRICK_WIDTH) / 2;
+		
+		for (int i = 0; i < bricksInLayer; i++) {
+			int x = brickOffset + i * BRICK_WIDTH;
+			add(new GRect(x, y, BRICK_WIDTH, BRICK_HEIGHT));
+		}
+		
+		
 	}
 }
 

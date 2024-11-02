@@ -9,7 +9,13 @@
 import acm.program.*;
 
 public class PythagoreanTheorem extends ConsoleProgram {
+	
 	public void run() {
-		/* You fill this in */
+		println("c = " + hypLength(readDouble("a: "), readDouble("b: ")));		
+	}
+	
+	// Calculate hypotenuse length given 2 other sides 
+	private double hypLength(double a, double b) {
+		return Math.sqrt(a*a+b*b);
 	}
 }
