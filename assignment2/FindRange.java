@@ -15,7 +15,7 @@ public class FindRange extends ConsoleProgram {
 	
 	public void run() {
 	
-		println("This program finds the largest and the smallest numbers.");
+		println("This program finds the largest and smallest numbers.");
 		
 		boolean wasInLoop = false;
 		int maxx = Integer.MIN_VALUE;
@@ -54,7 +54,7 @@ public class FindRange extends ConsoleProgram {
 			startPoint = 1;
 		}
 		
-		for (int i = len-1; i >= startPoint; i--) {
+		for (int i = startPoint; i < len; i++) {
 			absolute = absolute * 10 + (s.charAt(i) - '0');
 		}
 		

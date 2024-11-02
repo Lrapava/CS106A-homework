@@ -19,7 +19,7 @@ public class Target extends GraphicsProgram {
 	private static final int DELTA_RADIUS = 25;
 	
 	// Number of layers diplayed on the target
-	private static final int NUMBER_OF_LAYERS = 100;
+	private static final int NUMBER_OF_LAYERS = 3;
 	
 	// Draws all layers from outer towards inner	
 	public void run() {
