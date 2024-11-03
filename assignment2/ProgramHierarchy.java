@@ -16,7 +16,7 @@ public class ProgramHierarchy extends GraphicsProgram {
 	private static final int BOX_WIDTH = 120;
 	private static final int BOX_HEIGHT = 40;
 	
-	// Vertical &  horizontal padding between text boxes
+	// Vertical & horizontal padding between text boxes
 	private static final int LAYER_SEPARATION = 40;
 	private static final int BOX_SEPARATION = 20;
 	
@@ -24,12 +24,10 @@ public class ProgramHierarchy extends GraphicsProgram {
 		
 		// Calculating offset so that the diagram is centred
 		
-		final int w = getWidth();
-		final int h = getHeight();
 		final int diagramWidth = 3*BOX_WIDTH + 2*BOX_SEPARATION;
 		final int diagramHeight = 2*BOX_HEIGHT + 1*LAYER_SEPARATION;
-		final int XOffset = (w - diagramWidth) / 2;
-		final int YOffset = (h - diagramHeight) / 2;
+		final int XOffset = (getWidth() - diagramWidth) / 2;
+		final int YOffset = (getHeight() - diagramHeight) / 2;
 		
 		drawDiagram(XOffset, YOffset);
 		
@@ -50,8 +48,8 @@ public class ProgramHierarchy extends GraphicsProgram {
 		
 		// Draw bottom layer boxes
 		
-		drawTextBox(x + 0*X_STEP, y+Y_STEP, "Graphics Program");
-		drawTextBox(x + 1*X_STEP, y+Y_STEP, "Console Program");
+		drawTextBox(x + 0*X_STEP, y+Y_STEP, "GraphicsProgram");
+		drawTextBox(x + 1*X_STEP, y+Y_STEP, "ConsoleProgram");
 		drawTextBox(x + 2*X_STEP, y+Y_STEP, "DialogProgram");
 		
 		// Connect boxes with lines

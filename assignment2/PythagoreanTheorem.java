@@ -12,7 +12,7 @@ public class PythagoreanTheorem extends ConsoleProgram {
 	
 	public void run() {
 		println("Enter values to compute Pythagorean theorem.");
-		println("c = " + hypLength(readInt("a: "), readInt("b: ")));		
+		println("c = " + hypLength(readInt("a: "), readInt("b: ")));
 	}
 	
 	// Calculate hypotenuse length given 2 other sides 
