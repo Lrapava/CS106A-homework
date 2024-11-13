@@ -8,16 +8,16 @@ import java.awt.event.*;
 
 public class Slider extends GameObject {
 
-	private int x;
-	private int y;
-	private int width;
-	private int height;
+	private double x;
+	private double y;
+	private double width;
+	private double height;
 	private double value;
-		
+	
 	private GRect background;
 	private GRect slider;
 	
-	public Slider(double value, int x, int y, int width, int height, GraphicsProgram canvas) {
+	public Slider(double value, double x, double y, double width, double height, GraphicsProgram canvas) {
 		super(canvas);
 		this.value = value;
 		this.x = x;

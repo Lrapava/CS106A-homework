@@ -66,6 +66,7 @@ public class EndScreen extends Screen {
 				State.gameScreen = new GameScreen(canvas);
 				State.setActiveScreen(State.gameScreen);
 			} else if (obj == welcomeScreenButton.object) {
+				State.welcomeScreen = new WelcomeScreen(canvas);
 				State.setActiveScreen(State.welcomeScreen);
 			} else if (obj == quitButton.object) {
 				State.quit();

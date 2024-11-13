@@ -9,7 +9,7 @@ import java.awt.event.*;
 public class GameScreen extends Screen {
 
 	// Paddle class to manage paddle
-	private class Paddle extends GameObject {
+	public class Paddle extends GameObject {
 
 		public Paddle(GraphicsProgram canvas) {
 			super(canvas);
@@ -31,8 +31,8 @@ public class GameScreen extends Screen {
 			
 			int paddleX = mouseX - Global.PADDLE_WIDTH/2; 
 			
-			if (State.autopilot) {
-				GameObject currentBall = objects.getHead().next;
+			if (State.autopilot || (State.activeScreen() != State.gameScreen && nwalls > 0)) {
+				GameObject currentBall = balls.getHead();
 				GameObject closestBall = currentBall;
 				while (currentBall != null) {
 					double y = currentBall.object.getY();
@@ -56,7 +56,7 @@ public class GameScreen extends Screen {
 	}
 	
 	// Ball class to manage balls
-	private class Ball extends GameObject {
+	public class Ball extends GameObject {
 		
 		// radius
 		int r = Global.BALL_RADIUS;		
@@ -104,7 +104,7 @@ public class GameScreen extends Screen {
 		// other properties of a given sublass of GameObject before drawing
 		@Override
 		public void	update() {
-			if (!awaiting) {
+			if (!awaiting || State.activeScreen() != State.gameScreen) {
 				double x = object.getX();
 				double y = object.getY();
 				double dx = v_x * State.chron.dt() * State.k_v;
@@ -137,49 +137,69 @@ public class GameScreen extends Screen {
 			
 			double random = State.rgen.nextDouble(0, 1);
 			
-			if (obju != null && (obju == paddle.object || walls.containsGObject(obju))) {
-				if (obju != paddle.object) {
-					canvas.remove(obju);
-					walls.delete(walls.findGObject(obju));
-					wallBroken = true;
-					nwalls--;
+			// if (obju != objd || objl != objr) {
+				
+				if (obju != null) {
+					if (walls.containsGObject(obju)) {
+						canvas.remove(obju);
+						walls.delete(walls.findGObject(obju));
+						wallBroken = true;
+						nwalls--;
+						collided = true;
+						v_y = Math.abs(v_y);
+					}
+					if (objects.containsGObject(obju)) {
+						collided = true;
+						v_y = Math.abs(v_y);
+					}
 				}
-				collided = true;
-				v_y *= -1;
-			}
-			
-			if (objd != null && (objd == paddle.object || walls.containsGObject(objd))) {
-				if (objd != paddle.object) {
-					canvas.remove(objd);
-					walls.delete(walls.findGObject(objd));
-					wallBroken = true;
-					nwalls--;
+
+				if (objd != null) {
+					if (walls.containsGObject(objd)) {
+						canvas.remove(objd);
+						walls.delete(walls.findGObject(objd));
+						wallBroken = true;
+						nwalls--;
+						collided = true;
+						v_y = -1*Math.abs(v_y);
+					}
+					if (objects.containsGObject(objd)) {
+						collided = true;
+						v_y = -1*Math.abs(v_y);
+					}
 				}
-				collided = true;
-				v_y *= -1;
-			}
-			
-			if (objl != null && (objl == paddle.object || walls.containsGObject(objl))) {
-				if (objl != paddle.object) {
-					canvas.remove(objl);
-					walls.delete(walls.findGObject(objl));
-					wallBroken = true;
-					nwalls--;
+
+				if (objl != null) {
+					if (walls.containsGObject(objl)) {
+						canvas.remove(objl);
+						walls.delete(walls.findGObject(objl));
+						wallBroken = true;
+						nwalls--;
+						collided = true;
+						v_x = Math.abs(v_x);
+					}
+					if (objects.containsGObject(objl)) {
+						collided = true;
+						v_x = Math.abs(v_x);
+					}
 				}
-				collided = true;
-				v_x *= -1;
-			}
-			
-			if (objr != null && (objr == paddle.object || walls.containsGObject(objr))) {
-				if (objr != paddle.object) {
-					canvas.remove(objr);	
-					walls.delete(walls.findGObject(objr));
-					wallBroken = true;
-					nwalls--;
+
+				if (objr != null) {
+					if (walls.containsGObject(objr)) {
+						canvas.remove(objr);
+						walls.delete(walls.findGObject(objr));
+						wallBroken = true;
+						nwalls--;
+						collided = true;
+						v_x = -1*Math.abs(v_x);
+					}
+					if (objects.containsGObject(objr)) {
+						collided = true;
+						v_x = -1*Math.abs(v_x);
+					}
 				}
-				collided = true;
-				v_x *= -1;
-			}
+				
+			// }
 			
 			// Making sure the sign is right after collision with borders.
 			
@@ -195,22 +215,22 @@ public class GameScreen extends Screen {
 			
 			if (y + 2*r + dy > Global.HEIGHT) {
 				nballs--;
-				objects.delete(this);
+				balls.delete(this);
 				canvas.remove(object);
 			}
 			
 			if (wallBroken) {
 				if (random <= State.karma) {
 					nballs++;
-					objects.insert(new Ball(x, y, canvas));
+					balls.insert(new Ball(x, y, canvas));
 				}
 			}
 			
-			if (collided) {
+			if (collided && nwalls > 0) {
 				State.bounceClip.play();
 			}
 			
-		}		
+		}
 	}
 	
 	// The paddle
@@ -218,6 +238,9 @@ public class GameScreen extends Screen {
 	
 	// Linked list of all walls on the screen
 	private ObjectList walls;
+
+	// Linked list of all walls on the screen
+	private ObjectList balls;
 	
 	// Number of active balls on the screen
 	private int nballs = 1;
@@ -231,16 +254,16 @@ public class GameScreen extends Screen {
 	// If awaiting is true, the balls are frozen, but the pause screen
 	// is not displayed. Once the user clicks the screen, the awaiting
 	// mode is disabled.
-	private boolean awaiting = true;
+	public boolean awaiting = true;
 	
 	// deafualt constructor
 	public GameScreen(GraphicsProgram canvas) {
 		super(canvas);
+		balls = new ObjectList();
 		createWalls();
 		paddle = new Paddle(canvas);
+		balls.insert(new Ball(canvas));
 		objects.insert(paddle);
-		objects.insert(new Ball(canvas));
-		
 	}
 	
 	// This method is called every time a new frame is about to be
@@ -248,15 +271,16 @@ public class GameScreen extends Screen {
 	// GameObjects.
 	@Override 
 	public void update() {
-		objects.update();		
+		paddle.update();
+		balls.update();
+		objects.update();
 		if (nballs == 0) {
 			ndeaths++;
 			nballs++;
 			awaiting = true;
-			objects.insert(new Ball(canvas));
+			balls.insert(new Ball(canvas));
 		}
-		paddle.update();
-		if (ndeaths >= Global.NTURNS || nwalls == 0) {
+		if ((ndeaths >= Global.NTURNS || nwalls == 0) && State.activeScreen() == State.gameScreen) {
 			State.victorious = (nwalls == 0);
 			State.setActiveScreen(State.endScreen);
 		}
@@ -278,7 +302,14 @@ public class GameScreen extends Screen {
 	public void redraw() {
 		canvas.removeAll();
 		walls.draw();
+		balls.draw();
 		objects.draw();
+	}
+	
+	@Override
+	public void draw() {
+		balls.draw();
+		objects.draw();		
 	}
 	
 	// Creates all the walls
@@ -287,12 +318,22 @@ public class GameScreen extends Screen {
 		walls = new ObjectList();
 		
 		for (int j = 0; j < Global.NBRICK_ROWS; j++) {
-			final Color c = switch (j/2) {
-				case 0 -> Color.red;
-				case 1 -> Color.orange;
-				case 2 -> Color.yellow;
-				case 3 -> Color.green;
-				default -> Color.cyan;
+			Color c;
+			switch (j/2) {
+				case 0:
+					c = Color.red;
+					break;
+				case 1:
+					c = Color.orange;
+					break;
+				case 2:
+					c = Color.yellow;
+					break;
+				case 3: 
+					c = Color.green;
+					break;
+				default:
+					c = Color.cyan;
 			};
 			createWallLayer(j, c);
 		}

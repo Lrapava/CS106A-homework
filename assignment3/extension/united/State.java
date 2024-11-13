@@ -94,7 +94,7 @@ public class State {
 		pauseScreen 	= new PauseScreen	(canvas);
 		endScreen		= new EndScreen		(canvas);
 		
-		bounceClip = MediaTools.loadAudioClip("./bounce.au");
+		bounceClip = MediaTools.loadAudioClip("bounce.au");
 		
 		currentScreen = welcomeScreen;
 	}

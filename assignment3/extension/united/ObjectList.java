@@ -31,6 +31,17 @@ public class ObjectList {
 		}
 	}
 	
+	public void insertFront(GameObject object) {
+		if (head == null) {
+			head = object;
+			tail = object;
+		} else {
+			head.prev = object;
+			object.next = head;
+			head = object;
+		}
+	}
+	
 	public void delete(GameObject object) {
 		if (object != null) {
 			if (object.next != null) {

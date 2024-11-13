@@ -1,4 +1,6 @@
-I limitted myself to only using syntax showcased on lectures & seminars when writing this extension.
+# breakout extension
+
+I tried limitting myself to only using syntax showcased on lectures & seminars when writing this extension.
 
 Due to this fact, some things are not wrote as efficiently as they could have been.
 

@@ -10,8 +10,8 @@ public class PauseScreen extends Screen {
 	
 	// Parameters for button dimensions & spacing
 	private static final int BUTTON_WIDTH = 200;
-	private static final int BUTTON_HEIGHT = 30;
-	private static final int BUTTON_SEPARATION = 10;
+	private static final int BUTTON_HEIGHT = 50;
+	private static final int BUTTON_SEPARATION = 0;
 	private static final int NBUTTONS = 4;
 	
 	// Buttons displayed on the screen
@@ -52,6 +52,7 @@ public class PauseScreen extends Screen {
 			} else if (obj == settingsButton.object) {
 				State.setActiveScreen(State.settingsScreen);
 			} else if (obj == welcomeScreenButton.object) {
+				State.welcomeScreen = new WelcomeScreen(canvas);
 				State.setActiveScreen(State.welcomeScreen);
 			} else if (obj == quitButton.object) {
 				State.quit();

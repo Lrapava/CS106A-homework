@@ -54,7 +54,7 @@ public class GameObject {
     public void mouseReleased(MouseEvent e) {
 		if (canvas.getElementAt(e.getX(), e.getY()) == this.object) {
 			onRelease(e);
-		}    	
+		}
     }
 	
 	public void onHover(MouseEvent e) {
