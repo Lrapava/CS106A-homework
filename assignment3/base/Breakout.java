@@ -36,7 +36,7 @@ public class Breakout extends GraphicsProgram {
 	private static final int NBRICKS_PER_ROW = 10;
 
 /** Number of rows of bricks */
-	private static final int NBRICK_ROWS = 10;
+	private static final int NBRICK_ROWS = 42;
 
 /** Separation between bricks */
 	private static final int BRICK_SEP = 4;
@@ -243,7 +243,7 @@ public class Breakout extends GraphicsProgram {
 	private void createWalls() {
 		for (int j = 0; j < NBRICK_ROWS; j++) {
 			Color c;
-			switch (j/2) {
+			switch ((j/2)%5) {
 				case 0:
 					c = Color.red;
 					break;

@@ -18,7 +18,7 @@ You can compile the library using the provided build script (./gui-lib/build.sh)
 
 After that, move the ./gui-lib/final/gui-lib.jar file to ./breakout/lib
 
-Add add.jar file to ./breakout/lib
+Add acm.jar file to ./breakout/lib
 
 Compile Breakout using the provided build script (./breakout/build.sh)
 

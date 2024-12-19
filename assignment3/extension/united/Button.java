@@ -6,17 +6,25 @@ import java.applet.*;
 import java.awt.*;
 import java.awt.event.*;
 
+// Button class. For additional information view GameObject.java
 public class Button extends GameObject {
-
+	
+	// Button position
 	private double x;
 	private double y;
+	
+	// Button dimensions
 	private double width;
 	private double height;
+	
+	// Button text
 	private String text = "";
 	
+	// Button background & label
 	public GRect background;
 	public GLabel label;
 	
+	// Button constructor
 	public Button(String text, double x, double y, double width, double height, GraphicsProgram canvas) {
 		super(canvas);
 		this.text = text;
@@ -39,6 +47,7 @@ public class Button extends GameObject {
 		label.setLocation(x+XOffset, y+YOffset);
 	}
 	
+	// Changes label of the button
 	public void setLabel(String text) {
 		this.text = text;
 		label.setLabel(text);

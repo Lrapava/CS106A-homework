@@ -6,17 +6,25 @@ import java.applet.*;
 import java.awt.*;
 import java.awt.event.*;
 
+// Slider class. For additional information view GameObject.java
 public class Slider extends GameObject {
-
+	
+	// Slider position
 	private double x;
 	private double y;
+
+	// Slider dimensions
 	private double width;
 	private double height;
+
+	// Slider value (percent filled)
 	private double value;
 	
+	// Slider background, slider.
 	private GRect background;
 	private GRect slider;
 	
+	// Slider constructor
 	public Slider(double value, double x, double y, double width, double height, GraphicsProgram canvas) {
 		super(canvas);
 		this.value = value;
@@ -37,12 +45,14 @@ public class Slider extends GameObject {
 		collider.setFilled(false);
 		object = collider;
 	}
-		
+	
+	// Changes value of the slider 
 	public void setValue(double val) {
 		value = val;
 		slider.setSize(value*width, height);
 	}
 	
+	// Returns value of the slider 
 	public double getValue() {
 		return value;
 	}
