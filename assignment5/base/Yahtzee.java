@@ -74,7 +74,6 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 		}
 		
 		endScreen();
-		
 	}
 	
 	// rolls dices based on fixMask
