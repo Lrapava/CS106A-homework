@@ -34,7 +34,7 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 			wasInLoop = true;
 		}
 		
-		scoreTable = new int[nPlayers][18];
+		scoreTable  = new int[nPlayers][18];
 		wasSelected = new boolean[nPlayers][18];
 		playerNames = new String[nPlayers];
 		
@@ -134,15 +134,15 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 			} else {
 				cur_cons++;
 			}
-			
 			if (f[i] > f[m1]) {
+				m2 = m1;
 				m1 = i;
 			} else if (f[i] > f[m2]) {
 				m2 = i;
 			}
 		}
 		max_cons = Math.max(max_cons, cur_cons);
-		
+				
 		if ((category == THREE_OF_A_KIND || category == FOUR_OF_A_KIND) && f[m1] > category - 7) {
 			score = sum;
 		} else if ((category == SMALL_STRAIGHT || category == LARGE_STRAIGHT) && max_cons > category - 9) {
@@ -159,6 +159,7 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 			scoreTable[player-1][LOWER_SCORE] -= score;
 			if (scoreTable[player-1][UPPER_SCORE] >= 63) {
 				scoreTable[player-1][UPPER_BONUS] = 35;
+				scoreTable[player-1][TOTAL] += 35;
 			}
 		}
 		

@@ -34,7 +34,7 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 			wasInLoop = true;
 		}
 		
-		scoreTable = new int[nPlayers][18];
+		scoreTable  = new int[nPlayers][18];
 		wasSelected = new boolean[nPlayers][18];
 		playerNames = new String[nPlayers];
 		
@@ -71,10 +71,10 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 			int category = getNewCategory(player, display);
 			evaluate(category, player, dice);
 			display.updateScorecard(category, player, scoreTable[player-1][category]);
+			display.updateScorecard(YAHTZEE, player, scoreTable[player-1][YAHTZEE]);
 		}
 		
 		endScreen();
-		
 	}
 	
 	// rolls dices based on fixMask
@@ -135,8 +135,8 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 			} else {
 				cur_cons++;
 			}
-			
 			if (f[i] > f[m1]) {
+				m2 = m1;
 				m1 = i;
 			} else if (f[i] > f[m2]) {
 				m2 = i;
@@ -160,6 +160,7 @@ public class Yahtzee extends GraphicsProgram implements YahtzeeConstants {
 			scoreTable[player-1][LOWER_SCORE] -= score;
 			if (scoreTable[player-1][UPPER_SCORE] >= 63) {
 				scoreTable[player-1][UPPER_BONUS] = 35;
+				scoreTable[player-1][TOTAL] += 35;
 			}
 		}
 		
