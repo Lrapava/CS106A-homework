@@ -11,6 +11,9 @@ import java.util.*;
 
 public class NameSurferEntry implements NameSurferConstants {
 
+	private String name;
+	private ArrayList<Integer> rank;
+
 /* Constructor: NameSurferEntry(line) */
 /**
  * Creates a new NameSurferEntry from a data line as it appears
@@ -19,7 +22,15 @@ public class NameSurferEntry implements NameSurferConstants {
  * decade.
  */
 	public NameSurferEntry(String line) {
-		// You fill this in //
+		
+		String[] arg = line.split(" ");
+		name = arg[0];
+		
+		rank = new ArrayList<Integer>();
+		for (int i = 1; i < arg.length; i++) {
+			rank.add(Integer.parseInt(arg[i]));
+		}
+		
 	}
 
 /* Method: getName() */
@@ -27,8 +38,7 @@ public class NameSurferEntry implements NameSurferConstants {
  * Returns the name associated with this entry.
  */
 	public String getName() {
-		// You need to turn this stub into a real implementation //
-		return null;
+		return name;
 	}
 
 /* Method: getRank(decade) */
@@ -40,8 +50,7 @@ public class NameSurferEntry implements NameSurferConstants {
  * not appear in a decade, the rank value is 0.
  */
 	public int getRank(int decade) {
-		// You need to turn this stub into a real implementation //
-		return 0;
+		return rank.get(decade);
 	}
 
 /* Method: toString() */
@@ -50,8 +59,14 @@ public class NameSurferEntry implements NameSurferConstants {
  * NameSurferEntry.
  */
 	public String toString() {
-		// You need to turn this stub into a real implementation //
-		return "";
+		String res = "";
+		res += name + " [";
+		for (int i = 0; i < rank.size(); i++) {
+			res += " " + rank.get(i);
+		}
+		res += " ]";
+		return res;
 	}
+	
 }
 

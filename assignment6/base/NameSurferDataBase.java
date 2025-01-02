@@ -9,7 +9,12 @@
  * and "ERIC" are the same names.
  */
 
+import java.io.*;
+import java.util.*;
+
 public class NameSurferDataBase implements NameSurferConstants {
+	
+	private HashMap <String, NameSurferEntry> map;
 	
 /* Constructor: NameSurferDataBase(filename) */
 /**
@@ -19,7 +24,22 @@ public class NameSurferDataBase implements NameSurferConstants {
  * occurs as the file is being read.
  */
 	public NameSurferDataBase(String filename) {
-		// You fill this in //
+		map = new HashMap <String, NameSurferEntry>();
+		
+		try {
+			FileReader file = new FileReader(filename);
+			BufferedReader reader = new BufferedReader(file);
+			
+			String line;
+			while ((line = reader.readLine()) != null) {
+				NameSurferEntry entry = new NameSurferEntry(line);
+				String key = entry.getName().toLowerCase();
+				map.put(key, entry);
+			}
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 /* Method: findEntry(name) */
@@ -29,8 +49,7 @@ public class NameSurferDataBase implements NameSurferConstants {
  * method returns null.
  */
 	public NameSurferEntry findEntry(String name) {
-		// You need to turn this stub into a real implementation //
-		return null;
+		return map.get(name.toLowerCase());
 	}
 }
 
