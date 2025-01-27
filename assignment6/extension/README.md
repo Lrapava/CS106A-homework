@@ -1,7 +1,14 @@
-In this extension i decided to demonstrate various methods of interpolation.
+# Namesurfer extension
 
-That includes:
-1. Linear interpolation
-2. Lagrange interpolation
-3. Cubic interpolation
-4. Cubic interpolation (preserving 2d derivatives)
+I used this homework assignment as an opportunity to showcase & learn about common methods of interpolation. I also derived all the formulae for those methods myself, which required me to apply some of the preciously gained knowledge of linaer algebra and calculus, and to implement mathematical methods such as vector addition, multiplication, Gaussian elimination & back substitiution.
+
+# Features
+
+Additional features include:
+
+* Interpolation mode indicator
+* "Change Interpolation Mode" button
+* Linear interpolation (default)
+* Lagrange interpolation
+* Cubic interpolation
+* Cubic interpolation (continues in 2nd derivative, unstable)
