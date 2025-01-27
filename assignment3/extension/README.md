@@ -38,7 +38,7 @@ After that, move the `./gui-lib/final/gui-lib.jar` file to `./breakout/lib`
 
 Add `acm.jar` file to `./breakout/lib`
 
-Compile Breakout using the provided build script (./breakout/build.sh)
+Compile Breakout using the provided build script (`./breakout/build.sh`)
 
 Execute the `./breakout/file/Breakout.jar` file manually, or by running `./breakout/run.sh`
 
