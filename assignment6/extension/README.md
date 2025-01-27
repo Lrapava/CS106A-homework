@@ -11,6 +11,6 @@ Additional features include:
 * Linear interpolation (default)
 * Lagrange interpolation
 * Cubic interpolation
-* Cubic interpolation (continues in 2nd derivative, unstable)
+* Alternative cubic interpolation (continues in 2nd derivative, unstable)
 * Interpolation mode indicator
 * "Change Interpolation Mode" button
