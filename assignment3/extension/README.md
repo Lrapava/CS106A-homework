@@ -16,16 +16,16 @@ I also basically wrote a mini GUI library (gui-lib) which relies on ACM in the p
 
 # build instructions
 
-You can compile the library using the provided build script (./gui-lib/build.sh)
+You can compile the library using the provided build script (`./gui-lib/build.sh`)
 
-After that, move the ./gui-lib/final/gui-lib.jar file to ./breakout/lib
+After that, move the `./gui-lib/final/gui-lib.jar` file to `./breakout/lib`
 
-Add acm.jar file to ./breakout/lib
+Add `acm.jar` file to `./breakout/lib`
 
 Compile Breakout using the provided build script (./breakout/build.sh)
 
-Execute the ./breakout/file/Breakout.jar file manually, or by running ./breakout/run.sh
+Execute the `./breakout/file/Breakout.jar` file manually, or by running `./breakout/run.sh`
 
 # alternative build instructions
 
-Go to ./united and compile all the files provided in the directory
+Go to `./united` and compile all the files provided in the directory
