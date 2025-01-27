@@ -8,9 +8,9 @@ I also derived all the formulae for those methods myself, which required me to a
 
 Additional features include:
 
-* Interpolation mode indicator
-* "Change Interpolation Mode" button
 * Linear interpolation (default)
 * Lagrange interpolation
 * Cubic interpolation
 * Cubic interpolation (continues in 2nd derivative, unstable)
+* Interpolation mode indicator
+* "Change Interpolation Mode" button
