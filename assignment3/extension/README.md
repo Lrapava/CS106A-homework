@@ -9,8 +9,10 @@ I also basically wrote a mini GUI library (gui-lib) which relies on ACM in the p
 # structure
 
 ./gui-lib	contains "library files"
+
 ./breakout	contains "files specific to the game"
-./united	contains both is a less structured way
+
+./united	contains both in a less structured way
 
 # build instructions
 
