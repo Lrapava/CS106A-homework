@@ -1,4 +1,4 @@
-# breakout extension
+# Breakout extension
 
 I tried limitting myself to only using syntax showcased on lectures & seminars when writing this extension.
 
@@ -6,7 +6,7 @@ Due to this fact, some things are not wrote as efficiently as they could have be
 
 I also basically wrote a mini GUI library (gui-lib) which relies on ACM in the process.
 
-# structure
+# Structure
 
 `./gui-lib`   contains "library files"
 
@@ -14,7 +14,19 @@ I also basically wrote a mini GUI library (gui-lib) which relies on ACM in the p
 
 `./united`    contains both in a less structured way
 
-# build instructions
+# Features
+
+Additional features include:
+
+* Custom tiny UI library
+* Menu system
+* FPS locking to framerate of choice 
+* Velocity coefficient 
+* Karma stat (chance of new ball spawning after ball colision)
+
+These features allow this program to be an accelent showcase of how FPS and velocity affect collision detection.
+
+# Build instructions
 
 You can compile the library using the provided build script (`./gui-lib/build.sh`)
 
@@ -26,6 +38,6 @@ Compile Breakout using the provided build script (./breakout/build.sh)
 
 Execute the `./breakout/file/Breakout.jar` file manually, or by running `./breakout/run.sh`
 
-# alternative build instructions
+# Alternative build instructions
 
 Go to `./united` and compile all the files provided in the directory
