@@ -20,9 +20,10 @@ Additional features include:
 
 * Custom tiny UI library
 * Menu system
-* FPS locking to framerate of choice 
-* Velocity coefficient 
-* Karma stat (chance of new ball spawning after ball colision)
+* FPS locking
+* Velocity coefficient
+* Framerate indicator
+* Karma stat (chance of new ball spawning after a wall break)
 
 These features allow this program to be an accelent showcase of how FPS and velocity affect collision detection.
 
